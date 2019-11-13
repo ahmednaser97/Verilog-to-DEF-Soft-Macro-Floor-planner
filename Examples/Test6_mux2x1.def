@@ -1,0 +1,71 @@
+VERSION 5.6 ;
+NAMESCASESENSITIVE ON ;
+DIVIDERCHAR "/" ;
+BUSBITCHARS "<>" ;
+DESIGN mux2x1 ;
+UNITS DISTANCE MICRONS 100 ;
+
+DIEAREA ( -480 -400 ) ( 8000 7900 ) ;
+
+TRACKS Y -400 DO 42 STEP 200 LAYER metal1 ;
+TRACKS X -480 DO 54 STEP 160 LAYER metal2 ;
+TRACKS Y -400 DO 42 STEP 200 LAYER metal3 ;
+TRACKS X -480 DO 27 STEP 320 LAYER metal4 ;
+
+COMPONENTS 3 ;
+- INVX1_1 INVX1 + PLACED ( 0 0 ) ; 
+- NAND2X1_1 NAND2X1 + PLACED ( 0 0 ) ; 
+- AOI22X1_1 AOI22X1 + PLACED ( 0 0 ) ; 
+END COMPONENTS
+
+PINS 8 ;
+- a<0> + NET a<0>
+  + LAYER metal3 ( 0 0 ) ( 1 1 )
+  + PLACED ( -480 2800 ) N ;
+- a<1> + NET a<1>
+  + LAYER metal3 ( 0 0 ) ( 1 1 )
+  + PLACED ( -480 3000 ) N ;
+- b<0> + NET b<0>
+  + LAYER metal3 ( 0 0 ) ( 1 1 )
+  + PLACED ( 8000 3200 ) N ;
+- b<1> + NET b<1>
+  + LAYER metal3 ( 0 0 ) ( 1 1 )
+  + PLACED ( 8000 3400 ) N ;
+- sel<0> + NET sel<0>
+  + LAYER metal2 ( 0 0 ) ( 1 1 )
+  + PLACED ( 2720 -400 ) N ;
+- sel<1> + NET sel<1>
+  + LAYER metal2 ( 0 0 ) ( 1 1 )
+  + PLACED ( 2880 -400 ) N ;
+- y<0> + NET y<0>
+  + LAYER metal2 ( 0 0 ) ( 1 1 )
+  + PLACED ( 3040 -400 ) N ;
+- y<1> + NET y<1>
+  + LAYER metal2 ( 0 0 ) ( 1 1 )
+  + PLACED ( 3200 -400 ) N ;
+END PINS
+
+NETS 8 ;
+- sel<0>
+  ( PIN sel<0> )
+  ( INVX1_1 A ) ;
+- _1_
+  ( INVX1_1 Y ) ;
+- _3_
+  ( NAND2X1_1 A ) ;
+- _6_
+  ( AOI22X1_1 Y )
+  ( NAND2X1_1 B ) ;
+- _11__1_
+  ( NAND2X1_1 Y ) ;
+- a<1>
+  ( PIN a<1> )
+  ( AOI22X1_1 A ) ;
+- _4_
+  ( AOI22X1_1 B ) ;
+- b<1>
+  ( PIN b<1> )
+  ( AOI22X1_1 C ) ;
+END NETS
+
+END DESIGN

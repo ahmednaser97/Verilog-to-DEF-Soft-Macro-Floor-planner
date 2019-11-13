@@ -1,0 +1,7 @@
+A	L	M3
+B	R	M3
+Y0	L	M2
+Y1	R	M2
+Y2	L	M1
+Y3	R	M1
+en      U       M1

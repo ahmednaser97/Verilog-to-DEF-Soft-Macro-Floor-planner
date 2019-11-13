@@ -1,0 +1,52 @@
+VERSION 5.6 ;
+NAMESCASESENSITIVE ON ;
+DIVIDERCHAR "/" ;
+BUSBITCHARS "<>" ;
+DESIGN Test7_Simple_AOI ;
+UNITS DISTANCE MICRONS 100 ;
+
+DIEAREA ( -480 -400 ) ( 4800 4800 ) ;
+
+TRACKS Y -400 DO 27 STEP 200 LAYER metal1 ;
+TRACKS X -480 DO 34 STEP 160 LAYER metal2 ;
+TRACKS Y -400 DO 27 STEP 200 LAYER metal3 ;
+TRACKS X -480 DO 17 STEP 320 LAYER metal4 ;
+
+COMPONENTS 1 ;
+- OAI21X1_8 OAI21X1 + PLACED ( 0 0 ) ; 
+END COMPONENTS
+
+PINS 5 ;
+- A + NET A
+  + LAYER metal3 ( 0 0 ) ( 1 1 )
+  + PLACED ( -480 1600 ) N ;
+- B + NET B
+  + LAYER metal3 ( 0 0 ) ( 1 1 )
+  + PLACED ( -480 1800 ) N ;
+- C + NET C
+  + LAYER metal3 ( 0 0 ) ( 1 1 )
+  + PLACED ( -480 2000 ) N ;
+- D + NET D
+  + LAYER metal3 ( 0 0 ) ( 1 1 )
+  + PLACED ( -480 2200 ) N ;
+- F + NET F
+  + LAYER metal1 ( 0 0 ) ( 1 1 )
+  + PLACED ( 4800 1600 ) N ;
+-  + NET 
+  + LAYER  ( 0 0 ) ( 1 1 )
+END PINS
+
+NETS 5 ;
+- D
+  ( OAI21X1_8 A ) ;
+- C
+  ( OAI21X1_8 B ) ;
+- B
+  ( OAI21X1_8 C ) ;
+- A
+  ( OAI21X1_8 D ) ;
+- F
+  ( OAI21X1_8 Y ) ;
+END NETS
+
+END DESIGN

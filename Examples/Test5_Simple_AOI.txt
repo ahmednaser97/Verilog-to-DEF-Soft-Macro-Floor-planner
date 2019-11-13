@@ -1,0 +1,6 @@
+A	L	M3
+B	L	M3
+C	L	M3
+D	L	M3
+F	R	M1
+

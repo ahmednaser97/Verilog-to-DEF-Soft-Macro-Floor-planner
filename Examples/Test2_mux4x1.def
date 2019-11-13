@@ -1,0 +1,162 @@
+VERSION 5.6 ;
+NAMESCASESENSITIVE ON ;
+DIVIDERCHAR "/" ;
+BUSBITCHARS "<>" ;
+DESIGN mux4x1 ;
+UNITS DISTANCE MICRONS 100 ;
+
+DIEAREA ( -480 -400 ) ( 13760 13700 ) ;
+
+TRACKS Y -400 DO 71 STEP 200 LAYER metal1 ;
+TRACKS X -480 DO 90 STEP 160 LAYER metal2 ;
+TRACKS Y -400 DO 71 STEP 200 LAYER metal3 ;
+TRACKS X -480 DO 45 STEP 320 LAYER metal4 ;
+
+COMPONENTS 15 ;
+- NAND3X1_1 NAND3X1 + PLACED ( 0 0 ) ; 
+- INVX1_1 INVX1 + PLACED ( 0 0 ) ; 
+- NAND3X1_2 NAND3X1 + PLACED ( 0 0 ) ; 
+- AND2X2_1 AND2X2 + PLACED ( 0 0 ) ; 
+- NOR2X1_1 NOR2X1 + PLACED ( 0 0 ) ; 
+- NOR2X1_2 NOR2X1 + PLACED ( 0 0 ) ; 
+- AOI22X1_1 AOI22X1 + PLACED ( 0 0 ) ; 
+- NAND2X1_1 NAND2X1 + PLACED ( 0 0 ) ; 
+- NAND3X1_3 NAND3X1 + PLACED ( 0 0 ) ; 
+- NAND3X1_4 NAND3X1 + PLACED ( 0 0 ) ; 
+- AND2X2_2 AND2X2 + PLACED ( 0 0 ) ; 
+- AOI22X1_2 AOI22X1 + PLACED ( 0 0 ) ; 
+- NAND2X1_2 NAND2X1 + PLACED ( 0 0 ) ; 
+- BUFX2_1 BUFX2 + PLACED ( 0 0 ) ; 
+- BUFX2_2 BUFX2 + PLACED ( 0 0 ) ; 
+END COMPONENTS
+
+PINS 12 ;
+- a<0> + NET a<0>
+  + LAYER metal3 ( 0 0 ) ( 1 1 )
+  + PLACED ( -480 4400 ) N ;
+- a<1> + NET a<1>
+  + LAYER metal3 ( 0 0 ) ( 1 1 )
+  + PLACED ( -480 4600 ) N ;
+- b<0> + NET b<0>
+  + LAYER metal3 ( 0 0 ) ( 1 1 )
+  + PLACED ( 13760 4800 ) N ;
+- b<1> + NET b<1>
+  + LAYER metal3 ( 0 0 ) ( 1 1 )
+  + PLACED ( 13760 5000 ) N ;
+- c<0> + NET c<0>
+  + LAYER metal3 ( 0 0 ) ( 1 1 )
+  + PLACED ( -480 5200 ) N ;
+- c<1> + NET c<1>
+  + LAYER metal3 ( 0 0 ) ( 1 1 )
+  + PLACED ( -480 5400 ) N ;
+- d<0> + NET d<0>
+  + LAYER metal3 ( 0 0 ) ( 1 1 )
+  + PLACED ( -480 5600 ) N ;
+- d<1> + NET d<1>
+  + LAYER metal3 ( 0 0 ) ( 1 1 )
+  + PLACED ( -480 5800 ) N ;
+- sel<0> + NET sel<0>
+  + LAYER metal2 ( 0 0 ) ( 1 1 )
+  + PLACED ( 4320 -400 ) N ;
+- sel<1> + NET sel<1>
+  + LAYER metal2 ( 0 0 ) ( 1 1 )
+  + PLACED ( 4480 -400 ) N ;
+- y<0> + NET y<0>
+  + LAYER metal2 ( 0 0 ) ( 1 1 )
+  + PLACED ( 4640 -400 ) N ;
+- y<1> + NET y<1>
+  + LAYER metal2 ( 0 0 ) ( 1 1 )
+  + PLACED ( 4800 -400 ) N ;
+END PINS
+
+NETS 25 ;
+- sel<0>
+  ( PIN sel<0> )
+  ( NAND3X1_3 A )
+  ( NOR2X1_1 A )
+  ( INVX1_1 A )
+  ( NAND3X1_1 A ) ;
+- sel<1>
+  ( PIN sel<1> )
+  ( NAND3X1_4 A )
+  ( NAND3X1_3 B )
+  ( NOR2X1_2 A )
+  ( NOR2X1_1 B )
+  ( NAND3X1_2 A )
+  ( NAND3X1_1 B ) ;
+- d<1>
+  ( PIN d<1> )
+  ( NAND3X1_1 C ) ;
+- _0_
+  ( AND2X2_1 B )
+  ( NAND3X1_1 Y ) ;
+- _1_
+  ( NAND3X1_4 C )
+  ( NOR2X1_2 B )
+  ( NAND3X1_2 C )
+  ( INVX1_1 Y ) ;
+- c<1>
+  ( PIN c<1> )
+  ( NAND3X1_2 B ) ;
+- _2_
+  ( AND2X2_1 A )
+  ( NAND3X1_2 Y ) ;
+- _3_
+  ( NAND2X1_1 A )
+  ( AND2X2_1 Y ) ;
+- _4_
+  ( AOI22X1_2 B )
+  ( AOI22X1_1 B )
+  ( NOR2X1_1 Y ) ;
+- _5_
+  ( AOI22X1_2 D )
+  ( AOI22X1_1 D )
+  ( NOR2X1_2 Y ) ;
+- a<1>
+  ( PIN a<1> )
+  ( AOI22X1_1 A ) ;
+- b<1>
+  ( PIN b<1> )
+  ( AOI22X1_1 C ) ;
+- _6_
+  ( NAND2X1_1 B )
+  ( AOI22X1_1 Y ) ;
+- _11__1_
+  ( BUFX2_2 A )
+  ( NAND2X1_1 Y ) ;
+- d<0>
+  ( PIN d<0> )
+  ( NAND3X1_3 C ) ;
+- _7_
+  ( AND2X2_2 B )
+  ( NAND3X1_3 Y ) ;
+- c<0>
+  ( PIN c<0> )
+  ( NAND3X1_4 B ) ;
+- _8_
+  ( AND2X2_2 A )
+  ( NAND3X1_4 Y ) ;
+- _9_
+  ( NAND2X1_2 A )
+  ( AND2X2_2 Y ) ;
+- a<0>
+  ( PIN a<0> )
+  ( AOI22X1_2 A ) ;
+- b<0>
+  ( PIN b<0> )
+  ( AOI22X1_2 C ) ;
+- _10_
+  ( NAND2X1_2 B )
+  ( AOI22X1_2 Y ) ;
+- _11__0_
+  ( BUFX2_1 A )
+  ( NAND2X1_2 Y ) ;
+- y<0>
+  ( PIN y<0> )
+  ( BUFX2_1 Y ) ;
+- y<1>
+  ( PIN y<1> )
+  ( BUFX2_2 Y ) ;
+END NETS
+
+END DESIGN

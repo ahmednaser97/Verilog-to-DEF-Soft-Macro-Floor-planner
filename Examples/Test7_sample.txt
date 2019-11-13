@@ -1,0 +1,12 @@
+a<0>	L	M3
+a<1>	L	M3
+b<0>	R	M3
+b<1>	R	M3
+c<0>	L	M3
+c<1>	L	M3
+d<0>	L	M3
+d<1>	L	M3
+sel<0>	U	M2
+sel<1>	U	M2
+y<0>	U	M2
+y<1>	U	M2

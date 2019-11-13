@@ -1,0 +1,14 @@
+ci	U	M2
+co	U	M2
+a<0>	L	M3
+a<1>	L	M3
+a<2>	L	M3
+a<3>	L	M3
+b<0>	L	M3
+b<1>	L	M3
+b<2>	L	M3
+b<3>	L	M3
+s<0>	R	M1
+s<1>	R	M1
+s<2>	R	M1
+s<3>	R	M1
